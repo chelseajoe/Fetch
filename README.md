@@ -105,8 +105,77 @@ Users create a profile for their dog in order to match with like-minded dogs for
 [This section will be completed in Unit 9]
 
 ### Models
-Dog (User)
+1. User (Dog)
+```
+struct User: ParseUser {
+    // These are required by `ParseObject`.
+    var objectId: String?
+    var createdAt: Date?
+    var updatedAt: Date?
+    var ACL: ParseACL?
+    var originalData: Data?
+    
+    // These are required by `ParseUser`.
+    var username: String?
+    var email: String?
+    var emailVerified: Bool?
+    var password: String?
+    var authData: [String: [String: String]?]?
+    
+    // Custom Properties for Fetch
+    // -- Dog traits --
+    var name: String?
+    var breed: String?
+    var age: Int?
+    var bio: String?
+    var preferences: [String]?
+    var images: [ParseFile]?
+    
+    // -- User metadata --
+    var location: ParseGeoPoint?
+    var recentlyActive: Bool?
+    
+    // -- Cross-user data  --
+    // Strings represent usernames
+    var dislikedUsers: [String]?
+    var likedUsers: [String]? // Users that self liked
+    var usersLiked: [String]? // Users that liked self
+    var matchedUsers: [String]?
+}
+```
 
+
+
+2. ChatRoom + ChatMessage
+```
+struct ChatRoom: ParseObject {
+    // These are required by `ParseObject`.
+    var objectId: String?
+    var createdAt: Date?
+    var updatedAt: Date?
+    var ACL: ParseACL?
+    var originalData: Data?
+    
+    // Chat room properties
+    var messages: [ChatMessage]?
+    TODO: Add the following
+    var user1: String?
+    var user2: String?
+}
+
+struct ChatMessage: ParseObject {
+    // These are required by `ParseObject`.
+    var objectId: String?
+    var createdAt: Date?
+    var updatedAt: Date?
+    var ACL: ParseACL?
+    var originalData: Data?
+    
+    // Chat message properties
+    var user: String?
+    var message: String?
+}
+```
 
 ### Networking
 - [Add list of network requests by screen ]
