@@ -92,7 +92,7 @@ class PostViewController: UIViewController {
                     if var currentUser = User.current {
 
                         // Update the `lastPostedDate` property on the user with the current date.
-                        currentUser.lastPostedDate = Date()
+//                        currentUser.lastPostedDate = Date()
 
                         // Save updates to the user (async)
                         currentUser.save { [weak self] result in
