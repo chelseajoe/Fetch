@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		769E1EB429E3C35E00A69951 /* ParseConfig.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 769E1EB329E3C35E00A69951 /* ParseConfig.xcconfig */; };
 		769E1EB829E3E5A400A69951 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769E1EB729E3E5A400A69951 /* Chat.swift */; };
+		98E62C9329E8DC7100DE6D61 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98E62C9229E8DC7100DE6D61 /* Profile.storyboard */; };
+		98E62C9629E8DCBF00DE6D61 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E62C9529E8DCBF00DE6D61 /* ProfileViewController.swift */; };
 		98F1B30F29E64C37002D3D69 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F1B30E29E64C37002D3D69 /* Post.swift */; };
 		CB13E51F2913A16C008F45BB /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB13E51E2913A16C008F45BB /* PostCell.swift */; };
 		CB13E5212913B10B008F45BB /* DateFormatter+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB13E5202913B10B008F45BB /* DateFormatter+Extensions.swift */; };
@@ -31,6 +33,8 @@
 /* Begin PBXFileReference section */
 		769E1EB329E3C35E00A69951 /* ParseConfig.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = ParseConfig.xcconfig; sourceTree = SOURCE_ROOT; };
 		769E1EB729E3E5A400A69951 /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
+		98E62C9229E8DC7100DE6D61 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		98E62C9529E8DCBF00DE6D61 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		98F1B30E29E64C37002D3D69 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		CB13E51E2913A16C008F45BB /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		CB13E5202913B10B008F45BB /* DateFormatter+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extensions.swift"; sourceTree = "<group>"; };
@@ -63,6 +67,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		98E62C9129E8DC4E00DE6D61 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				98E62C9229E8DC7100DE6D61 /* Profile.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		98E62C9429E8DCA500DE6D61 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				98E62C9529E8DCBF00DE6D61 /* ProfileViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		CB13E51B2913A0E7008F45BB /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +146,8 @@
 		CB73D393290E3B4A00C12538 /* fetch */ = {
 			isa = PBXGroup;
 			children = (
+				98E62C9429E8DCA500DE6D61 /* Profile */,
+				98E62C9129E8DC4E00DE6D61 /* Storyboards */,
 				CB73D394290E3B4A00C12538 /* AppDelegate.swift */,
 				CB73D396290E3B4A00C12538 /* SceneDelegate.swift */,
 				CB7896FB29371C2300635932 /* Models */,
@@ -218,6 +240,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98E62C9329E8DC7100DE6D61 /* Profile.storyboard in Resources */,
 				CB73D3A1290E3B4C00C12538 /* LaunchScreen.storyboard in Resources */,
 				CB73D39E290E3B4C00C12538 /* Assets.xcassets in Resources */,
 				CB69974E2910F705007EDA6B /* Filmotype-Jade.otf in Resources */,
@@ -243,6 +266,7 @@
 				CB7896FD29371C3C00635932 /* User.swift in Sources */,
 				CB6997512911044D007EDA6B /* SignUpViewController.swift in Sources */,
 				CB13E5212913B10B008F45BB /* DateFormatter+Extensions.swift in Sources */,
+				98E62C9629E8DCBF00DE6D61 /* ProfileViewController.swift in Sources */,
 				CB73D397290E3B4A00C12538 /* SceneDelegate.swift in Sources */,
 				769E1EB829E3E5A400A69951 /* Chat.swift in Sources */,
 			);
@@ -400,6 +424,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -431,6 +456,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

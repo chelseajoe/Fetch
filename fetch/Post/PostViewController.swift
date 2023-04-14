@@ -25,6 +25,36 @@ class PostViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    @IBAction func segueButtonPressed(_ sender: Any) {
+        print("Segue")
+    }
+    
+//    @IBAction func segueButtonPressed(_ sender: Any) {
+//        print("Segue")
+//        performSegue(withIdentifier: "goToAlternateStoryboard", sender: sender)
+//    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//            if segue.identifier == "goToAlternateStoryboard" {
+//                guard let vc = segue.destination as? ProfileViewController else { return }
+//
+//            }
+//        }
+    // added segue to profile
+//    @IBAction func segueButtonPressed(_ sender: Any) {
+//        print("Segue")
+//        performSegue(withIdentifier: "goToAlternateStoryboard", sender: self)
+//    }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//            if segue.identifier == "goToAlternateStoryboard" {
+//                guard let vc = segue.destination as? ProfileViewController else { return }
+//
+//            }
+//        }
+    
+    // end here
+    
 
     @IBAction func onPickedImageTapped(_ sender: UIBarButtonItem) {
         // TODO: Pt 1 - Present Image picker
