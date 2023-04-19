@@ -187,3 +187,5 @@ struct ChatMessage: ParseObject {
 - [Create basic snippets for each Parse network request]
 - [OPTIONAL: List endpoints if using existing API such as Yelp]
 
+### Updates:
+Chelsea Joe - Created Branch for profile, and added text from Parse backend 
