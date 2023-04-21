@@ -189,3 +189,4 @@ struct ChatMessage: ParseObject {
 
 ### Updates:
 Chelsea Joe - Created Branch for profile, and added text from Parse backend 
+Chelsea Joe - Updated editing photos functionality to upload images
