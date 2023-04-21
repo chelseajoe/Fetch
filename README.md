@@ -188,5 +188,5 @@ struct ChatMessage: ParseObject {
 - [OPTIONAL: List endpoints if using existing API such as Yelp]
 
 ### Updates:
-Chelsea Joe - Created Branch for profile, and added text from Parse backend 
-Chelsea Joe - Updated editing photos functionality to upload images
+- Chelsea Joe - Created Branch for profile, and added text from Parse backend 
+- Chelsea Joe - Updated editing photos functionality to upload images
