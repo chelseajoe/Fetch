@@ -93,7 +93,7 @@ class ProfileViewController: UIViewController {
             // Update UI or perform any other action with the retrieved data
             DispatchQueue.main.async {
                 // Update UI elements with the retrieved data
-                self.nameAndAgeLabel.text = "\(name), \(age)"
+                self.nameAndAgeLabel.text = name
                 self.breedTextView.text = breed
                 self.descriptionTextView.text = bio
                 self.preferencesTextView.text = preferences?.joined(separator: ", ")
