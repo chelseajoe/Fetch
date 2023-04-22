@@ -26,7 +26,6 @@
 		CB7896F729371AAE00635932 /* ParseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CB7896F629371AAE00635932 /* ParseSwift */; };
 		CB7896FA29371B4600635932 /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = CB7896F929371B4600635932 /* AlamofireImage */; };
 		CB7896FD29371C3C00635932 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7896FC29371C3C00635932 /* User.swift */; };
-		CBCDFAFE291144DA001F1CF1 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCDFAFD291144DA001F1CF1 /* PostViewController.swift */; };
 		CBE72850293741370005CA57 /* ViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE7284F293741370005CA57 /* ViewController+Extensions.swift */; };
 /* End PBXBuildFile section */
 
@@ -50,7 +49,6 @@
 		CB73D3A0290E3B4C00C12538 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CB73D3A2290E3B4C00C12538 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB7896FC29371C3C00635932 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		CBCDFAFD291144DA001F1CF1 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		CBE7284F293741370005CA57 /* ViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -90,14 +88,6 @@
 				CB6997502911044D007EDA6B /* SignUpViewController.swift */,
 			);
 			path = Login;
-			sourceTree = "<group>";
-		};
-		CB13E51C2913A100008F45BB /* Post */ = {
-			isa = PBXGroup;
-			children = (
-				CBCDFAFD291144DA001F1CF1 /* PostViewController.swift */,
-			);
-			path = Post;
 			sourceTree = "<group>";
 		};
 		CB13E51D2913A121008F45BB /* Feed */ = {
@@ -153,7 +143,6 @@
 				CB7896FB29371C2300635932 /* Models */,
 				CB13E51B2913A0E7008F45BB /* Login */,
 				CB13E51D2913A121008F45BB /* Feed */,
-				CB13E51C2913A100008F45BB /* Post */,
 				CB13E5222913B119008F45BB /* Extensions */,
 				CB73D39A290E3B4A00C12538 /* Main.storyboard */,
 				CB73D39D290E3B4C00C12538 /* Assets.xcassets */,
@@ -257,7 +246,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB13E51F2913A16C008F45BB /* PostCell.swift in Sources */,
-				CBCDFAFE291144DA001F1CF1 /* PostViewController.swift in Sources */,
 				CBE72850293741370005CA57 /* ViewController+Extensions.swift in Sources */,
 				98F1B30F29E64C37002D3D69 /* Post.swift in Sources */,
 				CB73D399290E3B4A00C12538 /* LoginViewController.swift in Sources */,

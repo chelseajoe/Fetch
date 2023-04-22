@@ -12,25 +12,18 @@ import ParseSwift
 
 class FeedViewController: UIViewController {
 
-    @IBOutlet weak var tableView: UITableView!
     private let refreshControl = UIRefreshControl()
 
     private var posts = [Post]() {
         didSet {
             // Reload table view data any time the posts variable gets updated.
-            tableView.reloadData()
+            
         }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.allowsSelection = false
-
-        tableView.refreshControl = refreshControl
-        refreshControl.addTarget(self, action: #selector(onPullToRefresh), for: .valueChanged)
     }
 
     override func viewWillAppear(_ animated: Bool) {
