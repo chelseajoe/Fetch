@@ -134,43 +134,6 @@ func getMyProfile(completion: @escaping (String?, String?, Int?, String?, [Strin
 //}
 
 
-// To be defined in Feed view
-// MARK: Is there a good way to specify constraints for the fetch, or do we have to pull everything and then filter?
-// MARK: Maybe implement sorting profiles based on matching preferences
-// Back4App Query Codebook: Queries with constraints involving array type fields?
-let DEFAULT_MILE_DIAMETER: Double = 5
-func getProfiles() {
-    guard let myUser = User.current else {
-        print("Failed to get current user.")
-        return
-    }
-    
-    // TODO: Define constraints based on LOCATION. Probably hard code a "diameter" at first.
-    guard let location = myUser.location,
-          let geopoint = try? ParseGeoPoint(latitude: location.latitude,
-                                            longitude: location.longitude) else {
-        print("Failed to get current user's location")
-        return
-    }
-   
-    let constraint = withinKilometers(key: "location", geoPoint: geopoint, distance: DEFAULT_MILE_DIAMETER)
-    let query = User.query(constraint).include("user")
-
-    query.find { result in // [weak self]
-        switch result {
-        case .success(let posts):
-            // Update the local posts property with fetched posts
-            print(posts) // for now, to avoid type-checking warning message
-            
-        case .failure(let error):
-            print(error.localizedDescription)
-        }
-    }
-}
-
-
-
-
 // To be declared in Signup view
 // MARK: Handle login/logout with notification center
 func signup(username: String, email: String, password: String) {
