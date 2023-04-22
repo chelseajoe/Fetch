@@ -9,10 +9,8 @@ import UIKit
 import ParseSwift
 import PhotosUI
 
-
 class ProfileViewController: UIViewController {
 
-    
 //    var user: User!
     
     // Define the query
@@ -87,31 +85,31 @@ class ProfileViewController: UIViewController {
         MiddleEditButton.tag = 3
         RightEditButton.tag = 4
         
-        
+       
+        // TODO: COMMENTED OUT DUE TO IT RAISING ERRORS? Weird since nothing was modified.
         // load profile
-        getMyProfile { name, breed, age, bio, preferences, images in
-            // Update UI or perform any other action with the retrieved data
-            DispatchQueue.main.async {
-                // Update UI elements with the retrieved data
-                self.nameAndAgeLabel.text = name
-                self.breedTextView.text = breed
-                self.descriptionTextView.text = bio
-                self.preferencesTextView.text = preferences?.joined(separator: ", ")
-                // Handle images using ParseSwift's file handling methods
-                if let data = images?.first?.data {
-                    if let image = UIImage(data: data) {
-                        // Use the image object for further processing or display in UIImageView
-                        self.profileImageView.image = image
-                    } else {
-                        print("Error converting data to UIImage")
-                    }
-                } else {
-                    print("No data found")
-                }
-                
-                
-            }
-        }
+//        getMyProfile { name, breed, age, bio, preferences, images in
+//            // Update UI or perform any other action with the retrieved data
+//            DispatchQueue.main.async {
+//                // Update UI elements with the retrieved data
+//                self.nameAndAgeLabel.text = name
+//                self.breedTextView.text = breed
+//                self.descriptionTextView.text = bio
+//                self.preferencesTextView.text = preferences?.joined(separator: ", ")
+//                // Handle images using ParseSwift's file handling methods
+//                if let data = images?.first?.data {
+//                    if let image = UIImage(data: data) {
+//                        // Use the image object for further processing or display in UIImageView
+//                        self.profileImageView.image = image
+//                    } else {
+//                        print("Error converting data to UIImage")
+//                    }
+//                } else {
+//                    print("No data found")
+//                }
+//
+//            }
+//        }
 
     }
 
