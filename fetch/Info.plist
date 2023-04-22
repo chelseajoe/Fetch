@@ -12,6 +12,12 @@
 	<array>
 		<string>Filmotype-Jade.otf</string>
 	</array>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>The app requires access to your location</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>The app requires access to your location</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>The app requires access to your location</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
