@@ -20,7 +20,7 @@ class ChatMessageCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     
@@ -37,9 +37,16 @@ class ChatMessageCell: UITableViewCell {
         // Place message based on who sent it
         if chatMessage.user == user.username {
             messageLabel.textAlignment = .right
+            
         } else {
             messageLabel.textAlignment = .left
         }
     }
-
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        // Add spacing between cells
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 4, left: 12, bottom: 4, right: 12))
+    }
 }

@@ -115,25 +115,30 @@
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="783.66666666666663"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChatMessageCell" rowHeight="83" id="CBl-px-CDP" customClass="ChatMessageCell" customModule="fetch" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChatMessageCell" rowHeight="83" id="CBl-px-CDP" customClass="ChatMessageCell" customModule="fetch" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="393" height="83"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CBl-px-CDP" id="q9h-pu-h6v">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="83"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chat Message" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7zb-9L-C55">
+                                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="CQB-mq-HZ1">
                                                     <rect key="frame" x="0.0" y="0.0" width="393" height="83"/>
-                                                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chat Message" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7zb-9L-C55">
+                                                            <rect key="frame" x="0.0" y="31.333333333333336" width="393" height="20.333333333333336"/>
+                                                            <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="7zb-9L-C55" firstAttribute="leading" secondItem="q9h-pu-h6v" secondAttribute="leading" id="H1R-bg-ynL"/>
-                                                <constraint firstItem="7zb-9L-C55" firstAttribute="top" secondItem="q9h-pu-h6v" secondAttribute="top" id="Ikg-Tf-5YE"/>
-                                                <constraint firstAttribute="trailing" secondItem="7zb-9L-C55" secondAttribute="trailing" id="xwU-A7-6C4"/>
-                                                <constraint firstAttribute="bottom" secondItem="7zb-9L-C55" secondAttribute="bottom" id="zZz-e7-2pd"/>
+                                                <constraint firstAttribute="trailing" secondItem="CQB-mq-HZ1" secondAttribute="trailing" id="416-KJ-IOt"/>
+                                                <constraint firstItem="CQB-mq-HZ1" firstAttribute="top" secondItem="q9h-pu-h6v" secondAttribute="top" id="Szd-Om-js0"/>
+                                                <constraint firstAttribute="bottom" secondItem="CQB-mq-HZ1" secondAttribute="bottom" id="XVb-xD-nhN"/>
+                                                <constraint firstItem="CQB-mq-HZ1" firstAttribute="leading" secondItem="q9h-pu-h6v" secondAttribute="leading" id="nCk-Yr-nGt"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
