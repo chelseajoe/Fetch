@@ -18,6 +18,8 @@ struct ChatRoom: ParseObject {
     
     // Chat room properties
     var messages: [ChatMessage]?
+    var users: [String]?
+    var lastUpdated: Date?
 }
 
 struct ChatMessage: ParseObject {
@@ -32,5 +34,4 @@ struct ChatMessage: ParseObject {
     var user: String?
     var message: String?
 }
-
 

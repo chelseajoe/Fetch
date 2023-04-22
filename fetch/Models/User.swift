@@ -43,22 +43,13 @@ struct User: ParseUser {
     // Strings represent usernames
     var dislikedUsers: [String]?
     var likedUsers: [String]? // Users that self liked
-    var usersLiked: [String]? // Users that liked self
     var matchedUsers: [String]?
 }
-
-//extension User {
-//    static var mockUser: User(objectId: "id1",
-//                              createdAt: Date?,
-//                              updatedAt: Date?
-                              
-                              
 
 
 // For display in My Profile view
 // MARK: The current plan is NOT to fetch all parts of profile upon login.
-
-func getMyProfile(completion: @escaping (String?, String?, Int?, String?, [String]?, [ParseFile]?) -> Void) {
+func getMyProfile() {
     guard let myUser = User.current else {
         print("Failed to get current user.")
         return
@@ -68,70 +59,44 @@ func getMyProfile(completion: @escaping (String?, String?, Int?, String?, [Strin
     let query = User.query(constraint)
     
     query.find { result in
-        switch result {
-        case .success(let users):
-            guard let currentUser = users.first else {
-                print("Current user not found.")
-                return
-            }
-            // Access custom properties for own user
-            let name = currentUser.name
-            let breed = currentUser.breed
-            let age = currentUser.age
-            let bio = currentUser.bio
-            let preferences = currentUser.preferences
-            let images = currentUser.images
-            
-            // Call the completion block with the retrieved data
-            completion(name, breed, age, bio, preferences, images)
-            
-        case .failure(let error):
-            print("Error retrieving current user: \(error)")
-        }
+        // ... Store data of own user
     }
 }
 
-//func getMyProfile() {
-//    guard let myUser = User.current else {
-//        print("Failed to get current user.")
-//        return
-//    }
-//
-//    let constraint = "username" == myUser.username
-//    let query = User.query(constraint)
-//
-//    query.find { result in
-//            switch result {
-//            case .success(let users):
-//                guard let currentUser = users.first else {
-//                    print("Current user not found.")
-//                    return
-//                }
-//                // Access custom properties for own user
-//                if let name = currentUser.name {
-//                    print("Name: \(name)")
-//                }
-//                if let breed = currentUser.breed {
-//                    print("Breed: \(breed)")
-//                }
-//                if let age = currentUser.age {
-//                    print("Age: \(age)")
-//                }
-//                if let bio = currentUser.bio {
-//                    print("Bio: \(bio)")
-//                }
-//                if let preferences = currentUser.preferences {
-//                    print("Preferences: \(preferences)")
-//                }
-//                if let images = currentUser.images {
-//                    print("Images: \(images)")
-//                }
-//
-//            case .failure(let error):
-//                print("Error retrieving current user: \(error)")
-//            }
-//        }
-//}
+
+// To be defined in Feed view
+// MARK: Is there a good way to specify constraints for the fetch, or do we have to pull everything and then filter?
+// MARK: Maybe implement sorting profiles based on matching preferences
+// Back4App Query Codebook: Queries with constraints involving array type fields?
+let DEFAULT_MILE_DIAMETER: Double = 5
+func getProfiles() {
+    guard let myUser = User.current else {
+        print("Failed to get current user.")
+        return
+    }
+    
+    // TODO: Define constraints based on LOCATION. Probably hard code a "diameter" at first.
+    guard let location = myUser.location,
+          let geopoint = try? ParseGeoPoint(latitude: location.latitude,
+                                            longitude: location.longitude) else {
+        print("Failed to get current user's location")
+        return
+    }
+   
+    let constraint = withinKilometers(key: "location", geoPoint: geopoint, distance: DEFAULT_MILE_DIAMETER)
+    let query = User.query(constraint).include("user")
+
+    query.find { result in // [weak self]
+        switch result {
+        case .success(let posts):
+            // Update the local posts property with fetched posts
+            print(posts) // for now, to avoid type-checking warning message
+            
+        case .failure(let error):
+            print(error.localizedDescription)
+        }
+    }
+}
 
 
 // To be declared in Signup view
@@ -163,7 +128,7 @@ func signup(username: String, email: String, password: String) {
 func login(username: String, password: String) {
     User.login(username: username, password: password) { result in // [weak self]
         switch result {
-        case .success(let user):            
+        case .success(let user):
             NotificationCenter.default.post(name: Notification.Name("login"), object: nil)
             print(user) // for now, to avoid type-checking warning message
 
@@ -190,4 +155,3 @@ func logout() {
     alertController.addAction(cancelAction)
 //    present(alertController, animated: true)
 }
-
