@@ -43,7 +43,6 @@ struct User: ParseUser {
     // Strings represent usernames
     var dislikedUsers: [String]?
     var likedUsers: [String]? // Users that self liked
-    var usersLiked: [String]? // Users that liked self
     var matchedUsers: [String]?
 }
 

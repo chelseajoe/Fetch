@@ -30,6 +30,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             ParseSwift.initialize(applicationId: appID,
                                   clientKey: clientKey,
                                   serverURL: URL(string: "https://" + serverUrl)!)
+            
+            print(appID, clientKey, serverUrl)
+            print("Authenticated Back4App!")
+        } else {
+            print("Failed to authenticate Back4App!")
         }
 
         // TODO: Pt 1: - Instantiate and save a test parse object to your server

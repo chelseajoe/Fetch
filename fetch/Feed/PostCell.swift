@@ -58,7 +58,7 @@ class PostCell: UITableViewCell {
         // A lot of the following returns optional values so we'll unwrap them all together in one big `if let`
         // Get the current user.
         if let currentUser = User.current {
-
+            print(currentUser)
             // Get the date the user last shared a post (cast to Date).
 //           let lastPostedDate = currentUser.lastPostedDate,
 

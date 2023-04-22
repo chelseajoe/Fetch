@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Hot-nK-RXH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Hot-nK-RXH">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,37 +19,37 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="lab_insta_parse" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="fetch" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="48" translatesAutoresizingMaskIntoConstraints="NO" id="4iE-h0-KKh">
-                                <rect key="frame" x="24" y="157.00000000000003" width="342" height="276.66666666666674"/>
+                                <rect key="frame" x="24" y="159.33333333333337" width="342" height="272"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="dZg-MO-Mf0">
-                                        <rect key="frame" x="0.0" y="0.0" width="342" height="180.66666666666666"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="342" height="176"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instaparse" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XGx-Ld-H6T">
-                                                <rect key="frame" x="0.0" y="0.0" width="342" height="88.666666666666671"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="342" height="84"/>
                                                 <fontDescription key="fontDescription" name="FilmotypeJade-Regular" family="Filmotype Jade" pointSize="72"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fTT-rM-c3u">
-                                                <rect key="frame" x="0.0" y="100.66666666666669" width="342" height="34"/>
+                                                <rect key="frame" x="0.0" y="96" width="342" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nAU-Ud-dn0">
-                                                <rect key="frame" x="0.0" y="146.66666666666669" width="342" height="34"/>
+                                                <rect key="frame" x="0.0" y="141.99999999999997" width="342" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="z2z-ag-4P1">
-                                        <rect key="frame" x="0.0" y="228.66666666666669" width="342" height="48"/>
+                                        <rect key="frame" x="0.0" y="223.99999999999997" width="342" height="48.000000000000028"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfO-dy-o7P">
                                                 <rect key="frame" x="0.0" y="0.0" width="342" height="48"/>
@@ -72,10 +74,10 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Oh3-Iz-IeO">
-                                <rect key="frame" x="70.333333333333329" y="449.66666666666669" width="249.66666666666669" height="34.333333333333314"/>
+                                <rect key="frame" x="70.333333333333329" y="447.33333333333331" width="249.66666666666669" height="34.333333333333314"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Don't have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YAz-Tx-FSv">
-                                        <rect key="frame" x="0.0" y="8.3333333333333144" width="161" height="18"/>
+                                        <rect key="frame" x="0.0" y="8.3333333333333712" width="161" height="18"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" systemColor="secondaryLabelColor"/>
                                         <nil key="highlightedColor"/>
@@ -116,7 +118,7 @@
         <!--Sign Up View Controller-->
         <scene sceneID="9t9-xa-Ewl">
             <objects>
-                <viewController id="Hbv-xC-mao" customClass="SignUpViewController" customModule="lab_insta_parse" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Hbv-xC-mao" customClass="SignUpViewController" customModule="fetch" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hnZ-u2-eVN">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -216,7 +218,7 @@
         <!--Instaparse-->
         <scene sceneID="MCq-ly-0Co">
             <objects>
-                <viewController id="D49-nA-hPQ" customClass="FeedViewController" customModule="lab_insta_parse" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="D49-nA-hPQ" customClass="FeedViewController" customModule="fetch" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VKP-Iw-p1I">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -225,7 +227,7 @@
                                 <rect key="frame" x="0.0" y="91" width="390" height="753"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCell" rowHeight="527" id="9qC-nW-7MS" customClass="PostCell" customModule="lab_insta_parse" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCell" rowHeight="527" id="9qC-nW-7MS" customClass="PostCell" customModule="fetch" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="390" height="527"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9qC-nW-7MS" id="EvC-EF-v9N">
@@ -332,12 +334,26 @@
                                 <action selector="onLogOutTapped:" destination="D49-nA-hPQ" id="6WQ-YZ-OZd"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="plus.app" catalog="system" id="nbY-mp-bGb">
-                            <color key="tintColor" systemColor="labelColor"/>
-                            <connections>
-                                <segue destination="3KS-34-J8g" kind="show" id="oL8-b8-bAN"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem image="plus.app" catalog="system" id="nbY-mp-bGb">
+                                <color key="tintColor" systemColor="labelColor"/>
+                                <connections>
+                                    <segue destination="3KS-34-J8g" kind="show" id="oL8-b8-bAN"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem style="done" id="kpv-tB-XOl">
+                                <button key="customView" opaque="NO" alpha="0.94999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="sye-m3-dFT">
+                                    <rect key="frame" x="255" y="5" width="75" height="34.333333333333336"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                    <connections>
+                                        <segue destination="qI0-oV-fA4" kind="show" id="D9O-0Z-fYV"/>
+                                    </connections>
+                                </button>
+                                <color key="tintColor" name="AccentColor"/>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="if7-R7-g8V" id="rH4-Hg-R5i"/>
@@ -372,7 +388,7 @@
         <!--Post View Controller-->
         <scene sceneID="E77-Ui-z4h">
             <objects>
-                <viewController id="3KS-34-J8g" customClass="PostViewController" customModule="lab_insta_parse" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="3KS-34-J8g" customClass="PostViewController" customModule="fetch" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7HF-Hn-SEO">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -454,12 +470,25 @@
             </objects>
             <point key="canvasLocation" x="1748" y="712"/>
         </scene>
+        <!--Chat-->
+        <scene sceneID="vpT-na-YN7">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Chat" id="qI0-oV-fA4" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="AO6-4j-Dgf"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4MX-50-PXA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2261" y="1171"/>
+        </scene>
     </scenes>
     <resources>
         <image name="camera" catalog="system" width="128" height="93"/>
         <image name="photo" catalog="system" width="128" height="93"/>
         <image name="photo.artframe" catalog="system" width="128" height="93"/>
         <image name="plus.app" catalog="system" width="128" height="114"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
