@@ -27,83 +27,79 @@ Users create a profile for their dog in order to match with like-minded dogs for
 
 **Required Must-have Stories**
 
-* User can create a new account
-  * Location (approximate)
-  * Dog’s playing preferences & temperament (hardcoded list of preferences)
-  * Dog’s name (as account name?)
-  * Dog’s breed
-* User can login and logout
-* User can see their own profile
-* User can see other users
-  * User can swipe right or left
-* User can chat with other users upon mutual matching (swiping left on each other)
+* [x] User can create a new account
+  * [x] Location (approximate)
+  * [ ] Dog’s playing preferences & temperament (hardcoded list of preferences)
+  * [x] Dog’s name
+  * [x] Dog’s breed
+* [x] User can login and logout
+* [x] User can see their own profile
+* [ ] User can see other users
+  * [ ] User can swipe right or left
+* [ ] User can chat with other users upon mutual matching (swiping left on each other)
 
 
 **Optional Nice-to-have Stories**
 
-* Users can see other users based on a location range
-* Hardcoded questions to rank which profiles to show first
+* [ ] Users can see other users based on a location range
+* [ ] Hardcoded questions to rank which profiles to show first
 
 ### 2. Screen Archetypes
 
-* View Fetch Profiles (Dogs)
-   * Show the user’s dog pictures and name
-   * Click on an information icon to expand the profile and see all details
+* [ ] View Fetch Profiles (Dogs)
+   * [ ] Show the user’s dog pictures and name
+   * [ ] Click on an information icon to expand the profile and see all details
 
 * Chat
-   * List of chats
-   * Upon tapping into a chat, show message history and can chat with the other user
+   * [x] List of chats
+   * [x] Upon tapping into a chat, show message history and can chat with the other user
 
 * Log in
-   * Email, password
+   * [x] Email, password
 
 * Profile
-   * Edit profile (name, 6 dog pictures, select one of the 6 as the first picture, description, fields (playing preferences etc.)
-   * Location
+   * [ ] Edit profile (name, 6 dog pictures, select one of the 6 as the first picture, description, fields (playing preferences etc.)
+   * [ ] Location - ?
 
 
 ### 3. Navigation
 **Tab Navigation** (Tab to Screen)
 
-* View Fetch Profiles (the swiping screen—a.k.a “Home”)
-* Chats
-* Profile
+* [x] View Fetch Profiles (the swiping screen—a.k.a “Home”)
+* [x] Chats
+* [x] Profile
 
 **Flow Navigation** (Screen to Screen)
 
-* Login Screen
-=> Home (after successful login)
-=> OR go to Registration Screen
+* [x] Login Screen
+ * => Home (after successful login)
+ * => OR go to Registration Screen
 
-* Registration Screen
-=> Home (after successful signup)
-=> OR return to Login Screen
-* View Fetch Profiles (Homepage: the swiping screen)
+* [x] Registration Screen
+ * => [x] Home (after successful signup)
+ * => [x] OR return to Login Screen
+
+* [ ] View Fetch Profiles (Homepage: the swiping screen)
 => Successful Match Screen: If it’s a match, show this screen to encourage chatting, or allow going back to Home (View Fetch Profiles)
 
 
-* Chats (Homepage: The list of chats with matches)
-=> Individual chat & chat history (from List of Chats screen OR from Successful Match Screen)
-  => View Profile of Other User by tapping on their profile picture
+* [x] Chats (Homepage: The list of chats with matches)
+ * => Individual chat & chat history (from List of Chats screen OR from Successful Match Screen)
+ * => View Profile of Other User by tapping on their profile picture
 
-* Profile (Homepage: Your profile information)
-=> Edit Profile
-=> Logout (go to login page after AlertController confirmation)
+* [x] Profile (Homepage: Your profile information)
+ * => [x] Edit Profile
+ * => [ ] Logout (go to login page after AlertController confirmation)
 
 
 ## Wireframes
-[Add picture of your hand sketched wireframes in this section]
 <img src="YOUR_WIREFRAME_IMAGE_URL" width=600>
 ![Image](https://github.com/chelseajoe/Fetch/blob/main/Fetch_Lofi_Sketches.png)
 
 
-### [BONUS] Digital Wireframes & Mockups
+### [BONUS] Interactive Prototype - ???
 
-### [BONUS] Interactive Prototype
-
-## Schema 
-[This section will be completed in Unit 9]
-
+## Schema
 ### Models
 1. User (Dog)
 ```
@@ -131,15 +127,14 @@ struct User: ParseUser {
     var preferences: [String]?
     var images: [ParseFile]?
     
-    // -- User metadata --
+    // User metadata
     var location: ParseGeoPoint?
     var recentlyActive: Bool?
     
-    // -- Cross-user data  --
+    // Cross-user data
     // Strings represent usernames
     var dislikedUsers: [String]?
-    var likedUsers: [String]? // Users that self liked
-    var usersLiked: [String]? // Users that liked self
+    var likedUsers: [String]?
     var matchedUsers: [String]?
 }
 ```
@@ -158,9 +153,8 @@ struct ChatRoom: ParseObject {
     
     // Chat room properties
     var messages: [ChatMessage]?
-    TODO: Add the following
-    var user1: String?
-    var user2: String?
+    var users: [String]?
+    var lastUpdated: Date?
 }
 
 struct ChatMessage: ParseObject {
@@ -188,5 +182,8 @@ struct ChatMessage: ParseObject {
 - [OPTIONAL: List endpoints if using existing API such as Yelp]
 
 ### Updates:
-- Chelsea Joe - Created Branch for profile, and added text from Parse backend 
+- Chelsea Joe - Created branch for profile, and added text from Parse backend 
 - Chelsea Joe - Updated editing photos functionality to upload images
+- Melissa Saechao - Finished Login & Signup features
+- Anh Vu - Finished Chat features
+- Anh Vu - Merged all current branches into main
