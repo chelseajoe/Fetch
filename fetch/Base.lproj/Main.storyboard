@@ -112,11 +112,22 @@
         <scene sceneID="Tny-lz-SER">
             <objects>
                 <viewControllerPlaceholder storyboardName="Profile" referencedIdentifier="ProfileID" id="un6-xu-vgV" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Profile" image="person.fill" catalog="system" id="BVS-qv-KHt"/>
                     <navigationItem key="navigationItem" id="MlX-2x-Csv"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tOF-wq-hNk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1798" y="1373"/>
+            <point key="canvasLocation" x="1088" y="690"/>
+        </scene>
+        <!--ChatID-->
+        <scene sceneID="pho-s4-9TZ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Chat" referencedIdentifier="ChatID" id="BOY-qL-9HU" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="PAC-og-mBm"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nLb-m4-vXk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1114" y="2119"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="9t9-xa-Ewl">
@@ -228,51 +239,11 @@
         <scene sceneID="gty-PY-jGu">
             <objects>
                 <viewControllerPlaceholder storyboardName="Playmates" referencedIdentifier="PlaymatesID" id="nmE-nM-58Z" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="CeZ-tX-PIL"/>
+                    <tabBarItem key="tabBarItem" title="Playmates" image="heart.fill" catalog="system" id="QWz-it-ygJ"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SmC-VR-YdV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1798" y="712"/>
-        </scene>
-        <!--Profile-->
-        <scene sceneID="COD-G4-Gha">
-            <objects>
-                <navigationController id="UHY-eP-8Fq" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" image="person.fill" catalog="system" id="2LA-Uj-Uoa"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ep6-9a-CXy">
-                        <rect key="frame" x="0.0" y="47" width="390" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="un6-xu-vgV" kind="relationship" relationship="rootViewController" id="K3I-Wu-I9Y"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="sQQ-Ms-G9V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1114" y="1373"/>
-        </scene>
-        <!--Playmates-->
-        <scene sceneID="Yly-CZ-AY4">
-            <objects>
-                <navigationController storyboardIdentifier="FeedNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="DAh-Kx-zT3" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Playmates" image="heart.fill" catalog="system" id="Qu9-u3-1es"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="CNt-Tn-v14">
-                        <rect key="frame" x="0.0" y="47" width="390" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" name="FilmotypeJade-Regular" family="Filmotype Jade" pointSize="34"/>
-                        </textAttributes>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="nmE-nM-58Z" kind="relationship" relationship="rootViewController" id="kJJ-X3-JDW"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bic-nN-P4M" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1114" y="712"/>
+            <point key="canvasLocation" x="1088" y="1368"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="UPD-0i-qQT">
@@ -285,13 +256,14 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="DAh-Kx-zT3" kind="relationship" relationship="viewControllers" id="Mcp-eD-Wqb"/>
-                        <segue destination="UHY-eP-8Fq" kind="relationship" relationship="viewControllers" id="IOf-83-rl6"/>
+                        <segue destination="nmE-nM-58Z" kind="relationship" relationship="viewControllers" id="Z1d-6k-GAy"/>
+                        <segue destination="un6-xu-vgV" kind="relationship" relationship="viewControllers" id="wwb-HS-b3N"/>
+                        <segue destination="BOY-qL-9HU" kind="relationship" relationship="viewControllers" id="SY0-Uj-DyJ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CT0-hl-bdQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="254" y="1002"/>
+            <point key="canvasLocation" x="-991" y="1117"/>
         </scene>
     </scenes>
     <resources>

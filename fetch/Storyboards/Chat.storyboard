@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="czZ-km-6se">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Q6r-Bu-Gkh">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Chats Manager Controller-->
+        <!--Chats-->
         <scene sceneID="1gJ-Ez-KcP">
             <objects>
                 <viewController id="czZ-km-6se" customClass="ChatsManagerController" customModule="fetch" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="49q-Wc-Krn">
-                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChatRoomCell" rowHeight="50" id="Its-hx-HS9" customClass="ChatRoomCell" customModule="fetch" customModuleProvider="target">
@@ -72,24 +72,25 @@
                             <constraint firstItem="RDn-9J-3en" firstAttribute="trailing" secondItem="49q-Wc-Krn" secondAttribute="trailing" id="hIg-iU-gJg"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Chats" id="gfA-tC-Xe2"/>
                     <connections>
                         <outlet property="tableView" destination="49q-Wc-Krn" id="4Em-Js-xMT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1uv-rs-aGI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2498" y="-611"/>
+            <point key="canvasLocation" x="3423.6641221374043" y="-611.26760563380287"/>
         </scene>
         <!--UserName-->
         <scene sceneID="ceM-bP-Y3C">
             <objects>
                 <viewController id="l6A-yp-Txr" customClass="ChatRoomViewController" customModule="fetch" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7lL-ko-inO">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YXN-1Z-tyf">
-                                <rect key="frame" x="16" y="791.66666666666663" width="361" height="34.333333333333371"/>
+                                <rect key="frame" x="16" y="718.66666666666663" width="361" height="34.333333333333371"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d2Z-1q-hed">
                                         <rect key="frame" x="0.0" y="0.0" width="54.666666666666664" height="34.333333333333336"/>
@@ -112,7 +113,7 @@
                                 </subviews>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="zIW-Rf-Rsw">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="783.66666666666663"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="607.66666666666663"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChatMessageCell" rowHeight="83" id="CBl-px-CDP" customClass="ChatMessageCell" customModule="fetch" customModuleProvider="target">
@@ -168,15 +169,32 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dbN-0X-vkg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3475.5725190839694" y="-611.26760563380287"/>
+            <point key="canvasLocation" x="4402.2900763358775" y="-611.26760563380287"/>
+        </scene>
+        <!--Chats-->
+        <scene sceneID="llI-TW-ULa">
+            <objects>
+                <navigationController storyboardIdentifier="ChatID" automaticallyAdjustsScrollViewInsets="NO" id="Q6r-Bu-Gkh" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Chats" image="message.fill" catalog="system" id="32z-2a-Vcq"/>
+                    <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="BeY-Kg-Dk0">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="czZ-km-6se" kind="relationship" relationship="rootViewController" id="f8k-so-2eN"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AfP-jB-cf3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2496.9465648854962" y="-611.26760563380287"/>
         </scene>
     </scenes>
-    <color key="tintColor" name="AccentColor"/>
     <resources>
+        <image name="message.fill" catalog="system" width="128" height="114"/>
         <image name="photo" catalog="system" width="128" height="93"/>
-        <namedColor name="AccentColor">
-            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

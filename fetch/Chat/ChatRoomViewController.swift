@@ -22,6 +22,9 @@ class ChatRoomViewController: UIViewController {
     
     // MARK: Actions
     @IBAction func didTapSendMessage(_ sender: Any) {
+        // Disallow sending empty message
+        if let text = msgInputTextField.text, text.isEmpty { return }
+        
         guard let user = User.current else {
             print("Cannot get current user")
             return
