@@ -89,7 +89,7 @@ Users create a profile for their dog in order to match with like-minded dogs for
 
 * [x] Profile (Homepage: Your profile information)
  * => [x] Edit Profile
- * => [ ] Logout (go to login page after AlertController confirmation)
+ * => [x] Logout (go to login page after AlertController confirmation)
 
 
 ## Wireframes

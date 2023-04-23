@@ -46,6 +46,7 @@ class ProfileViewController: UIViewController {
     
     @IBOutlet weak var MiddleEditButton: UIButton!
 
+    @IBOutlet weak var logoutButton: UIBarButtonItem!
     
     
     @IBAction func onPickedImageTapped(_ sender: UIButton) {
@@ -86,30 +87,30 @@ class ProfileViewController: UIViewController {
         RightEditButton.tag = 4
         
        
-        // TODO: COMMENTED OUT DUE TO IT RAISING ERRORS? Weird since nothing was modified.
+        // This function exists in User.swift
         // load profile
-//        getMyProfile { name, breed, age, bio, preferences, images in
-//            // Update UI or perform any other action with the retrieved data
-//            DispatchQueue.main.async {
-//                // Update UI elements with the retrieved data
-//                self.nameAndAgeLabel.text = name
-//                self.breedTextView.text = breed
-//                self.descriptionTextView.text = bio
-//                self.preferencesTextView.text = preferences?.joined(separator: ", ")
-//                // Handle images using ParseSwift's file handling methods
-//                if let data = images?.first?.data {
-//                    if let image = UIImage(data: data) {
-//                        // Use the image object for further processing or display in UIImageView
-//                        self.profileImageView.image = image
-//                    } else {
-//                        print("Error converting data to UIImage")
-//                    }
-//                } else {
-//                    print("No data found")
-//                }
-//
-//            }
-//        }
+        getMyProfile { name, breed, age, bio, preferences, images in
+            // Update UI or perform any other action with the retrieved data
+            DispatchQueue.main.async {
+                // Update UI elements with the retrieved data
+                self.nameAndAgeLabel.text = name
+                self.breedTextView.text = breed
+                self.descriptionTextView.text = bio
+                self.preferencesTextView.text = preferences?.joined(separator: ", ")
+                // Handle images using ParseSwift's file handling methods
+                if let data = images?.first?.data {
+                    if let image = UIImage(data: data) {
+                        // Use the image object for further processing or display in UIImageView
+                        self.profileImageView.image = image
+                    } else {
+                        print("Error converting data to UIImage")
+                    }
+                } else {
+                    print("No data found")
+                }
+
+            }
+        }
 
     }
 
@@ -125,6 +126,21 @@ class ProfileViewController: UIViewController {
     }
     */
 
+    
+    @IBAction func onLogoutTapped(_ sender: Any) {
+        showConfirmLogoutAlert()
+    }
+    
+    private func showConfirmLogoutAlert() {
+        let alertController = UIAlertController(title: "Log out of \(User.current?.username ?? "current account")?", message: nil, preferredStyle: .alert)
+        let logOutAction = UIAlertAction(title: "Log out", style: .destructive) { _ in
+            NotificationCenter.default.post(name: Notification.Name("logout"), object: nil)
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        alertController.addAction(logOutAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true)
+    }
 }
 
 extension ProfileViewController: PHPickerViewControllerDelegate {
@@ -178,4 +194,6 @@ extension ProfileViewController: PHPickerViewControllerDelegate {
             }
         }
     }
+    
+    
 }

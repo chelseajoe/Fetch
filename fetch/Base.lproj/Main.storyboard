@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Hot-nK-RXH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Hot-nK-RXH">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -117,17 +116,17 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tOF-wq-hNk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1088" y="690"/>
+            <point key="canvasLocation" x="1105" y="1120"/>
         </scene>
         <!--ChatID-->
         <scene sceneID="pho-s4-9TZ">
             <objects>
                 <viewControllerPlaceholder storyboardName="Chat" referencedIdentifier="ChatID" id="BOY-qL-9HU" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="PAC-og-mBm"/>
+                    <tabBarItem key="tabBarItem" title="Chats" id="PAC-og-mBm"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nLb-m4-vXk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1114" y="2119"/>
+            <point key="canvasLocation" x="1103" y="1266"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="9t9-xa-Ewl">
@@ -243,7 +242,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SmC-VR-YdV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1088" y="1368"/>
+            <point key="canvasLocation" x="1122" y="1186"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="UPD-0i-qQT">
@@ -263,7 +262,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CT0-hl-bdQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-991" y="1117"/>
+            <point key="canvasLocation" x="254" y="1120"/>
         </scene>
     </scenes>
     <resources>

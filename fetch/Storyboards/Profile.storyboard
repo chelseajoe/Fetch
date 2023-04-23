@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VI8-4w-R80">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -141,7 +140,19 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Profile" id="lzv-ki-j8Y"/>
+                    <navigationItem key="navigationItem" title="Profile" id="lzv-ki-j8Y">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="xEl-29-KK4">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="VMO-hU-8Z0">
+                                <rect key="frame" x="16" y="5" width="87" height="34.333333333333336"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Logout"/>
+                                <connections>
+                                    <action selector="onLogoutTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Yfe-op-6nD"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="LeftEditButton" destination="84k-LD-8eq" id="axX-bD-Qsr"/>
@@ -151,6 +162,7 @@
                         <outlet property="breedTextView" destination="dTm-wf-zjf" id="iIa-T1-7jN"/>
                         <outlet property="descriptionTextView" destination="fow-ud-4ka" id="DgQ-bU-F9D"/>
                         <outlet property="locationTextView" destination="228-3O-ZrI" id="JEs-0b-kgG"/>
+                        <outlet property="logoutButton" destination="xEl-29-KK4" id="xpt-Tg-Vp9"/>
                         <outlet property="nameAndAgeLabel" destination="z8u-eP-2iE" id="drG-f6-31w"/>
                         <outlet property="preferencesTextView" destination="YPr-3M-yiM" id="ssc-C6-2fT"/>
                         <outlet property="profileImageView" destination="OV4-Ab-AaI" id="PHD-PL-Bdm"/>

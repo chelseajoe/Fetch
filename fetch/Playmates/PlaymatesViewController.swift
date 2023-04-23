@@ -54,10 +54,9 @@ class PlaymatesViewController: UIViewController, UICollectionViewDataSource {
         }
        
         let constraint = withinKilometers(key: "location", geoPoint: geopoint, distance: DEFAULT_MILE_DIAMETER)
-        let query = User.query(constraint).include("user")
+        let query = User.query(constraint).where(  "username" != myUser.username).include("user")
 
         query.find { [weak self] result in // [weak self]
-
             switch result {
             case .success(let users):
                 self?.users = users
@@ -70,10 +69,6 @@ class PlaymatesViewController: UIViewController, UICollectionViewDataSource {
 
     }
 
-    @IBAction func onLogOutTapped(_ sender: Any) {
-        showConfirmLogoutAlert()
-    }
-
     @objc private func onPullToRefresh() {
         refreshControl.beginRefreshing()
         queryPlaymates { [weak self] in
@@ -81,17 +76,6 @@ class PlaymatesViewController: UIViewController, UICollectionViewDataSource {
         }
     }
 
-    private func showConfirmLogoutAlert() {
-        let alertController = UIAlertController(title: "Log out of \(User.current?.username ?? "current account")?", message: nil, preferredStyle: .alert)
-        let logOutAction = UIAlertAction(title: "Log out", style: .destructive) { _ in
-            NotificationCenter.default.post(name: Notification.Name("logout"), object: nil)
-        }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-        alertController.addAction(logOutAction)
-        alertController.addAction(cancelAction)
-        present(alertController, animated: true)
-    }
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.users.count
     }

@@ -49,7 +49,7 @@ struct User: ParseUser {
 
 // For display in My Profile view
 // MARK: The current plan is NOT to fetch all parts of profile upon login.
-func getMyProfile() {
+func getMyProfile(completion: @escaping (String?, String?, Int?, String?, [String]?, [ParseFile]?) -> Void) {
     guard let myUser = User.current else {
         print("Failed to get current user.")
         return
@@ -59,7 +59,26 @@ func getMyProfile() {
     let query = User.query(constraint)
     
     query.find { result in
-        // ... Store data of own user
+        switch result {
+        case .success(let users):
+            guard let currentUser = users.first else {
+                print("Current user not found.")
+                return
+            }
+            // Access custom properties for own user
+            let name = currentUser.name
+            let breed = currentUser.breed
+            let age = currentUser.age
+            let bio = currentUser.bio
+            let preferences = currentUser.preferences
+            let images = currentUser.images
+            
+            // Call the completion block with the retrieved data
+            completion(name, breed, age, bio, preferences, images)
+            
+        case .failure(let error):
+            print("Error retrieving current user: \(error)")
+        }
     }
 }
 
