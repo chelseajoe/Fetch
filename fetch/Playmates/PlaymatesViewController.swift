@@ -32,6 +32,7 @@ class PlaymatesViewController: UIViewController {
             
         }
     }
+    private var currentUserIndex = 0
     
 
     override func viewDidLoad() {
@@ -92,13 +93,12 @@ class PlaymatesViewController: UIViewController {
     
     private func selectPlaymate() {
         if !self.users.isEmpty {
-            let currentUser = self.users.removeLast()
-            print(self.users)
+            let currentUser = self.users[currentUserIndex]
             
             // Update UI
             DispatchQueue.main.async {
                 // Update UI elements with the retrieved data
-                self.nameAgeLabel.text = currentUser.name
+                self.nameAgeLabel.text = currentUser.name! + ", " + String(currentUser.age!)
                 self.breedLabel.text = currentUser.breed
                 if let url = currentUser.images?.first?.url {
                     // Use AlamofireImage helper to fetch remote image from URL
@@ -141,9 +141,23 @@ class PlaymatesViewController: UIViewController {
     }
 
     //    MARK: Actions
-    @objc func expandProfile() {
-            print("Expan profile using Segue")
+    @objc func expandProfile(_ sender: Any) {
+        performSegue(withIdentifier: "expandProfileSegue", sender: sender)
+                
+    }
+            
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "expandProfileSegue",
+            
+            let detailViewController = segue.destination as? PlaymatesDetailViewController {
+            
+            // Setup the detailView
+            let user = users[currentUserIndex]
+            detailViewController.user = user
+            
         }
+    }
     @objc func like() {
             print("like the person send to backend")
         
