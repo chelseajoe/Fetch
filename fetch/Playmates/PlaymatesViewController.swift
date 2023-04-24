@@ -25,7 +25,7 @@ class PlaymatesViewController: UIViewController {
     @IBOutlet weak var moreInfoButton: UIImageView!
     
     private let refreshControl = UIRefreshControl()
-
+    
     private var users = [User]() {
         didSet {
             // Reload table view data any time the posts variable gets updated.
@@ -34,10 +34,10 @@ class PlaymatesViewController: UIViewController {
     }
     private var currentUserIndex = 0
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Add gestures to the images
         let tapMoreInfo = UITapGestureRecognizer(target: self, action: #selector(self.expandProfile))
         moreInfoButton.addGestureRecognizer(tapMoreInfo)
@@ -48,13 +48,13 @@ class PlaymatesViewController: UIViewController {
         let tapNope = UITapGestureRecognizer(target: self, action: #selector(self.nope))
         nopeButton.addGestureRecognizer(tapNope)
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
+        
         queryPlaymates()
     }
-
+    
     private func queryPlaymates(completion: (() -> Void)? = nil) {
         // MARK: Is there a good way to specify constraints for the fetch, or do we have to pull everything and then filter?
         // MARK: Maybe implement sorting profiles based on matching preferences
@@ -73,10 +73,10 @@ class PlaymatesViewController: UIViewController {
             print("Failed to get current user's location")
             return
         }
-       
+        
         let constraint = withinKilometers(key: "location", geoPoint: geopoint, distance: DEFAULT_MILE_DIAMETER)
         let query = User.query(constraint).where(  "username" != myUser.username).include("user")
-
+        
         query.find { [weak self] result in // [weak self]
             switch result {
             case .success(let users):
@@ -87,8 +87,8 @@ class PlaymatesViewController: UIViewController {
                 print(error.localizedDescription)
             }
         }
-
-
+        
+        
     }
     
     private func selectPlaymate() {
@@ -104,12 +104,12 @@ class PlaymatesViewController: UIViewController {
                     // Use AlamofireImage helper to fetch remote image from URL
                     let imageDataRequest = AF.request(url).responseImage { [weak self] response in
                         switch response.result {
-                            case .success(let image):
-                                // Set image view image with fetched image
-                                self?.imageView.image = image
-                            case .failure(let error):
-                                print("❌ Error fetching image: \(error.localizedDescription)")
-                                break
+                        case .success(let image):
+                            // Set image view image with fetched image
+                            self?.imageView.image = image
+                        case .failure(let error):
+                            print("❌ Error fetching image: \(error.localizedDescription)")
+                            break
                         }
                     }
                     
@@ -126,30 +126,30 @@ class PlaymatesViewController: UIViewController {
                 } else {
                     print("No data found")
                 }
-
+                
             }
         }
         
     }
     
-
+    
     @objc private func onPullToRefresh() {
         refreshControl.beginRefreshing()
         queryPlaymates { [weak self] in
             self?.refreshControl.endRefreshing()
         }
     }
-
+    
     //    MARK: Actions
     @objc func expandProfile(_ sender: Any) {
         performSegue(withIdentifier: "expandProfileSegue", sender: sender)
-                
+        
     }
-            
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "expandProfileSegue",
-            
+           
             let detailViewController = segue.destination as? PlaymatesDetailViewController {
             
             // Setup the detailView
@@ -159,12 +159,115 @@ class PlaymatesViewController: UIViewController {
         }
     }
     @objc func like() {
-            print("like the person send to backend")
-        
-        
+        if var currentUser = User.current,
+           (users[currentUserIndex].username != nil) {
+            if currentUser.likedUsers == nil {
+                currentUser.likedUsers = []
+            }
+            currentUser.likedUsers?.append(users[currentUserIndex].username!)
+            
+            currentUser.save { [weak self] result in // [weak self]
+                switch result {
+                case .success(_):
+                    self?.checkMatch(liked: true)
+                    
+                case .failure(let error):
+                    print("ERROR!!")
+                    print(error.localizedDescription)
+                }
+                
+            }
         }
+        
+    }
     @objc func nope() {
-            print("nope the person send to tbackend")
+        if var currentUser = User.current,
+           (users[currentUserIndex].username != nil) {
+            if currentUser.dislikedUsers == nil {
+                currentUser.dislikedUsers = []
+            }
+            currentUser.dislikedUsers?.append(users[currentUserIndex].username!)
+            
+            currentUser.save { [weak self] result in // [weak self]
+                switch result {
+                case .success(_):
+                    self?.checkMatch(liked: false)
+                    
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+                
+            }
         }
-
+        
+    }
+    func checkMatch(liked: Bool) {
+        // Check if there's a mutual like
+        var otherUser = users[currentUserIndex]
+        
+        if liked, var currentUser = User.current,
+           ((otherUser.likedUsers?.contains(currentUser.username!)) != nil){
+            // Update the users
+            
+            if currentUser.matchedUsers == nil {
+                currentUser.matchedUsers = []
+            }
+            if otherUser.matchedUsers == nil {
+                otherUser.matchedUsers = []
+            }
+            currentUser.matchedUsers?.append(otherUser.username!)
+            otherUser.matchedUsers?.append(currentUser.username!)
+            
+            currentUser.save { [weak self] result in
+                otherUser.save { [weak self] result in
+                    
+                    // Create the ChatRoom
+                    var room = ChatRoom()
+                    room.users = [otherUser.username!, currentUser.username!]
+                    room.lastUpdated = Date()
+                    
+                    room.save { [weak self] result in // [weak self]
+                        switch result {
+                        case .success(_):
+                            self?
+                                .showMatchAlert()
+                            
+                        case .failure(let error):
+                            print("OMG", error.localizedDescription)
+                        }
+                        
+                    }
+                }
+            }
+            
+          
+        } else {
+            self.users.removeFirst()
+            self.selectPlaymate()
+        }
+        
+    }
+    
+    func showMatchAlert() {
+        // Present alert
+        DispatchQueue.main.async {
+            let alertController = UIAlertController(title: "It's a match!", message: "You both liked each other", preferredStyle: .alert)
+            let logOutAction = UIAlertAction(title: "Chat Now", style: .default) { _ in
+                // segue to chat
+                self.performSegue(withIdentifier: "matchSegue", sender: nil)
+                self.users.removeFirst()
+                self.selectPlaymate()
+            }
+            let cancelAction = UIAlertAction(title: "Dismiss", style: .cancel) { _ in
+                self.users.removeFirst()
+                self.selectPlaymate()
+            }
+            
+            alertController.addAction(logOutAction)
+            alertController.addAction(cancelAction)
+            self.present(alertController, animated: true)
+            
+        }
+    }
+    
 }

@@ -88,11 +88,22 @@
                         <segue destination="lQs-XM-KXS" kind="popoverPresentation" identifier="expandProfileSegue" popoverAnchorView="gel-3l-5mP" id="D69-Qj-wlo">
                             <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                         </segue>
+                        <segue destination="dhD-bs-o4W" kind="showDetail" identifier="matchSegue" id="Mnt-sc-0kE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1037.4045801526718" y="3.5211267605633805"/>
+        </scene>
+        <!--ChatID-->
+        <scene sceneID="rGJ-eo-dUd">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="ChatIDRef" storyboardName="Chat" referencedIdentifier="ChatID" id="dhD-bs-o4W" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="nbM-Nt-CVc"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="to0-RY-o9g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1037" y="410"/>
         </scene>
         <!--Playmates Detail View Controller-->
         <scene sceneID="eaU-Hl-XYC">
@@ -204,7 +215,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BQR-Vd-rBS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="110.68702290076335" y="3.5211267605633805"/>
+            <point key="canvasLocation" x="150" y="4"/>
         </scene>
     </scenes>
     <resources>

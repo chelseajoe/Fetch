@@ -31,7 +31,7 @@ class PlaymatesDetailViewController: UIViewController {
             self.breedLabel.text = user?.breed
             
             self.bioLabel.text = user?.bio!
-            print(self.bioLabel.text, user)
+            
             if user?.preferences == nil {
                 self.preferencesLabel.text = "No preferences stated."
             } else {
