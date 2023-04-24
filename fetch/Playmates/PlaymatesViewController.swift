@@ -9,10 +9,20 @@ import UIKit
 
 // TODO: P1 1 - Import Parse Swift
 import ParseSwift
+import Alamofire
+import AlamofireImage
 
-class PlaymatesViewController: UIViewController, UICollectionViewDataSource {
+class PlaymatesViewController: UIViewController {
     
-    @IBOutlet weak var imagesCollectionView: UICollectionView!
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var nameAgeLabel: UILabel!
+    
+    @IBOutlet weak var breedLabel: UILabel!
+    @IBOutlet weak var nopeButton: UIImageView!
+    
+    @IBOutlet weak var likeButton: UIImageView!
+    
+    @IBOutlet weak var moreInfoButton: UIImageView!
     
     private let refreshControl = UIRefreshControl()
 
@@ -22,10 +32,20 @@ class PlaymatesViewController: UIViewController, UICollectionViewDataSource {
             
         }
     }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Add gestures to the images
+        let tapMoreInfo = UITapGestureRecognizer(target: self, action: #selector(self.expandProfile))
+        moreInfoButton.addGestureRecognizer(tapMoreInfo)
+        
+        let tapLike = UITapGestureRecognizer(target: self, action: #selector(self.like))
+        likeButton.addGestureRecognizer(tapLike)
+        
+        let tapNope = UITapGestureRecognizer(target: self, action: #selector(self.nope))
+        nopeButton.addGestureRecognizer(tapNope)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -60,6 +80,7 @@ class PlaymatesViewController: UIViewController, UICollectionViewDataSource {
             switch result {
             case .success(let users):
                 self?.users = users
+                self?.selectPlaymate()
                 
             case .failure(let error):
                 print(error.localizedDescription)
@@ -68,6 +89,49 @@ class PlaymatesViewController: UIViewController, UICollectionViewDataSource {
 
 
     }
+    
+    private func selectPlaymate() {
+        if !self.users.isEmpty {
+            let currentUser = self.users.removeLast()
+            print(self.users)
+            
+            // Update UI
+            DispatchQueue.main.async {
+                // Update UI elements with the retrieved data
+                self.nameAgeLabel.text = currentUser.name
+                self.breedLabel.text = currentUser.breed
+                if let url = currentUser.images?.first?.url {
+                    // Use AlamofireImage helper to fetch remote image from URL
+                    let imageDataRequest = AF.request(url).responseImage { [weak self] response in
+                        switch response.result {
+                            case .success(let image):
+                                // Set image view image with fetched image
+                                self?.imageView.image = image
+                            case .failure(let error):
+                                print("❌ Error fetching image: \(error.localizedDescription)")
+                                break
+                        }
+                    }
+                    
+                }
+                
+                // Handle images using ParseSwift's file handling methods
+                if let data = currentUser.images?.first?.data {
+                    if let image = UIImage(data: data) {
+                        // Use the image object for further processing or display in UIImageView
+                        self.imageView.image = image
+                    } else {
+                        print("Error converting data to UIImage")
+                    }
+                } else {
+                    print("No data found")
+                }
+
+            }
+        }
+        
+    }
+    
 
     @objc private func onPullToRefresh() {
         refreshControl.beginRefreshing()
@@ -76,21 +140,17 @@ class PlaymatesViewController: UIViewController, UICollectionViewDataSource {
         }
     }
 
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.users.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = imagesCollectionView.dequeueReusableCell(withReuseIdentifier: "PlaymatesCell", for: indexPath) as! PlaymatesCell
-
-        // Get the movie that corresponds to the table view row
+    //    MARK: Actions
+    @objc func expandProfile() {
+            print("Expan profile using Segue")
+        }
+    @objc func like() {
+            print("like the person send to backend")
         
+        
+        }
+    @objc func nope() {
+            print("nope the person send to tbackend")
+        }
 
-        // Configure the cell with it's associated movie
-        //cell.configure(with: movie)
-
-        // return the cell for display in the table view
-        return cell
-    }
-    
 }

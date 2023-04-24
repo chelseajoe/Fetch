@@ -7,6 +7,8 @@
 
 import UIKit
 import ParseSwift
+import Alamofire
+import AlamofireImage
 import PhotosUI
 
 class ProfileViewController: UIViewController {
@@ -52,11 +54,7 @@ class ProfileViewController: UIViewController {
     @IBAction func onPickedImageTapped(_ sender: UIButton) {
 
         // Create a configuration object
-        
-        
         buttonTag = sender.tag
-        print("button TAG")
-        print(buttonTag)
 
         var config = PHPickerConfiguration()
 
@@ -98,13 +96,19 @@ class ProfileViewController: UIViewController {
                 self.descriptionTextView.text = bio
                 self.preferencesTextView.text = preferences?.joined(separator: ", ")
                 // Handle images using ParseSwift's file handling methods
-                if let data = images?.first?.data {
-                    if let image = UIImage(data: data) {
-                        // Use the image object for further processing or display in UIImageView
-                        self.profileImageView.image = image
-                    } else {
-                        print("Error converting data to UIImage")
+                if let url = images?.first?.url {
+                    // Use AlamofireImage helper to fetch remote image from URL
+                    let imageDataRequest = AF.request(url).responseImage { [weak self] response in
+                        switch response.result {
+                            case .success(let image):
+                                // Set image view image with fetched image
+                                self?.profileImageView.image = image
+                            case .failure(let error):
+                                print("❌ Error fetching image: \(error.localizedDescription)")
+                                break
+                        }
                     }
+                    
                 } else {
                     print("No data found")
                 }
@@ -170,27 +174,59 @@ extension ProfileViewController: PHPickerViewControllerDelegate {
                 //              self?.showAlert(error: error)
                 return
             } else {
+                // Create a Parse File by providing a name and passing in the image data
+                var imageFileName = "image.jpg"
+                 
+                 if (self?.buttonTag == 1) {
+                     imageFileName = "Profile0.jpg"
+                 } else if (self?.buttonTag == 2) {
+                     imageFileName = "Profile1.jpg"
+                 } else if (self?.buttonTag == 3) {
+                     imageFileName = "Profile2.jpg"
+                 } else {
+                     imageFileName = "Profile3.jpg"
+                 }
                 
-                // UI updates (like setting image on image view) should be done on main thread
-                DispatchQueue.main.async {
-                    
-                    // Set image on preview image view
-//                    self?.previewImageView.image = image
-                    
-                    // Set image to use when saving post
-                    self?.pickedImage = image
-//                    self?.profileImageView.image = image
-                    if (self?.buttonTag == 1) {
-                        self?.profileImageView.image = image
-                    } else if (self?.buttonTag == 2) {
-                        self?.smallImageLeftView.image = image
-                    } else if (self?.buttonTag == 3) {
-                        self?.smallImageMiddleView.image = image
-                    } else {
-                        self?.smallImageRightView.image = image
+                // Set image on preview image view
+                guard let imageData = image.jpegData(compressionQuality: 0.1) else {
+                           return
+                       }
+                
+                // Create a Parse File by providing a name and passing in the image data
+                 let imageFile = ParseFile(name: imageFileName, data: imageData)
+                
+                if var currentUser = User.current {
+                    if currentUser.images == nil {
+                        currentUser.images = []
                     }
+                    currentUser.images?.append(imageFile)
                     
+                    currentUser.save { [weak self] result in
+                    
+                        // UI updates (like setting image on image view) should be done on main thread
+                        DispatchQueue.main.async {
+                            // Set image to use when saving post
+                            self?.pickedImage = image
+                            
+                            if (self?.buttonTag == 1) {
+                                self?.profileImageView.image = image
+                                
+                            } else if (self?.buttonTag == 2) {
+                                self?.smallImageLeftView.image = image
+                                
+                            } else if (self?.buttonTag == 3) {
+                                self?.smallImageMiddleView.image = image
+                                
+                            } else {
+                                self?.smallImageRightView.image = image
+                                
+                            }
+                            
+                            
+                        }
+                    }
                 }
+                
             }
         }
     }
