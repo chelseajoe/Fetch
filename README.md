@@ -29,26 +29,26 @@ Users create a profile for their dog in order to match with like-minded dogs for
 
 * [x] User can create a new account
   * [x] Location (approximate)
-  * [ ] Dog’s playing preferences & temperament (hardcoded list of preferences)
+  * [ ] ~Dog’s playing preferences & temperament (hardcoded list of preferences)~
   * [x] Dog’s name
   * [x] Dog’s breed
 * [x] User can login and logout
 * [x] User can see their own profile
-* [ ] User can see other users
-  * [ ] User can swipe right or left
-* [ ] User can chat with other users upon mutual matching (swiping left on each other)
+* [x] User can see other users
+  * [ ] ~User can swipe right or left~
+* [x] User can chat with other users upon mutual matching (swiping left on each other)
 
 
 **Optional Nice-to-have Stories**
 
-* [ ] Users can see other users based on a location range
+* [x] Users can see other users based on a location range
 * [ ] Hardcoded questions to rank which profiles to show first
 
 ### 2. Screen Archetypes
 
-* [ ] View Fetch Profiles (Dogs)
-   * [ ] Show the user’s dog pictures and name
-   * [ ] Click on an information icon to expand the profile and see all details
+* [x] View Fetch Profiles (Dogs)
+   * [x] Show the user’s dog pictures and name
+   * [x] Click on an information icon to expand the profile and see all details
 
 * Chat
    * [x] List of chats
@@ -79,7 +79,7 @@ Users create a profile for their dog in order to match with like-minded dogs for
  * => [x] Home (after successful signup)
  * => [x] OR return to Login Screen
 
-* [ ] View Fetch Profiles (Homepage: the swiping screen)
+* [x] View Fetch Profiles (Homepage: the swiping screen)
 => Successful Match Screen: If it’s a match, show this screen to encourage chatting, or allow going back to Home (View Fetch Profiles)
 
 
