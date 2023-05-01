@@ -27,10 +27,15 @@ class PlaymatesDetailViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         if (user != nil) {
-            self.nameAgeLabel.text = (user?.name)! + ", " + String(user?.age! ?? 0)
-            self.breedLabel.text = user?.breed
+            if (user?.age != nil) {
+                self.nameAgeLabel.text = (user?.name)! + ", " + String(user?.age! ?? 0)
+            } else {
+                self.nameAgeLabel.text = user?.name!
+            }
             
-            self.bioLabel.text = user?.bio!
+            self.breedLabel.text = user?.breed ?? "No breed stated."
+            
+            self.bioLabel.text = user?.bio ?? "No bio written yet."
             
             if user?.preferences == nil {
                 self.preferencesLabel.text = "No preferences stated."

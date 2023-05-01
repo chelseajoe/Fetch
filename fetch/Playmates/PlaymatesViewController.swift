@@ -98,7 +98,12 @@ class PlaymatesViewController: UIViewController {
             // Update UI
             DispatchQueue.main.async {
                 // Update UI elements with the retrieved data
-                self.nameAgeLabel.text = currentUser.name! + ", " + String(currentUser.age!)
+                if (currentUser.age != nil) {
+                    self.nameAgeLabel.text = currentUser.name! + ", " + String(currentUser.age!)
+                } else {
+                    self.nameAgeLabel.text = currentUser.name!
+                }
+               
                 self.breedLabel.text = currentUser.breed
                 if let url = currentUser.images?.first?.url {
                     // Use AlamofireImage helper to fetch remote image from URL
@@ -126,6 +131,19 @@ class PlaymatesViewController: UIViewController {
                 } else {
                     print("No data found")
                 }
+                
+            }
+        } else {
+            // Present alert
+            DispatchQueue.main.async {
+                let alertController = UIAlertController(title: "Oops!", message: "No more active users in your area.", preferredStyle: .alert)
+                
+                let cancelAction = UIAlertAction(title: "Check back later", style: .cancel) { _ in
+                    self.nameAgeLabel.text = "(no more active users in your area)"
+                }
+                
+                alertController.addAction(cancelAction)
+                self.present(alertController, animated: true)
                 
             }
         }
@@ -159,7 +177,7 @@ class PlaymatesViewController: UIViewController {
         }
     }
     @objc func like() {
-        if var currentUser = User.current,
+        if users.count > 0, var currentUser = User.current,
            (users[currentUserIndex].username != nil) {
             if currentUser.likedUsers == nil {
                 currentUser.likedUsers = []
@@ -181,7 +199,7 @@ class PlaymatesViewController: UIViewController {
         
     }
     @objc func nope() {
-        if var currentUser = User.current,
+        if users.count > 0, var currentUser = User.current,
            (users[currentUserIndex].username != nil) {
             if currentUser.dislikedUsers == nil {
                 currentUser.dislikedUsers = []
@@ -252,7 +270,7 @@ class PlaymatesViewController: UIViewController {
         // Present alert
         DispatchQueue.main.async {
             let alertController = UIAlertController(title: "It's a match!", message: "You both liked each other", preferredStyle: .alert)
-            let logOutAction = UIAlertAction(title: "Chat Now", style: .default) { _ in
+            let chatAction = UIAlertAction(title: "Chat Now", style: .default) { _ in
                 // segue to chat
                 self.performSegue(withIdentifier: "matchSegue", sender: nil)
                 self.users.removeFirst()
@@ -263,7 +281,7 @@ class PlaymatesViewController: UIViewController {
                 self.selectPlaymate()
             }
             
-            alertController.addAction(logOutAction)
+            alertController.addAction(chatAction)
             alertController.addAction(cancelAction)
             self.present(alertController, animated: true)
             

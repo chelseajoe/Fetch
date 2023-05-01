@@ -88,7 +88,7 @@
                         <segue destination="lQs-XM-KXS" kind="popoverPresentation" identifier="expandProfileSegue" popoverAnchorView="gel-3l-5mP" id="D69-Qj-wlo">
                             <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                         </segue>
-                        <segue destination="dhD-bs-o4W" kind="showDetail" identifier="matchSegue" id="Mnt-sc-0kE"/>
+                        <segue destination="dhD-bs-o4W" kind="show" identifier="matchSegue" id="Mnt-sc-0kE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
